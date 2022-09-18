@@ -2,7 +2,7 @@ package lb1;
 
 public class Lab1Com {
 
-    Lab1Com(int offset) {
+    public Lab1Com(int offset) {
         this.offset = offset;
     }
 
@@ -10,6 +10,9 @@ public class Lab1Com {
 
     private String alp = "abcdefghijklmnopqrstuvwxyz";
 
+    public void setOffset(int offset){
+        this.offset = offset;
+    }
     public String crypt(String text) {
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -30,9 +33,8 @@ public class Lab1Com {
 
     public String decrypt(String text) {
         StringBuilder stringBuilder = new StringBuilder();
-
         for (char ch : text.toCharArray()) {
-            if (ch == ' ') {
+            if (ch == ' ' || !alp.contains(String.valueOf(ch))) {
                 stringBuilder.append(ch);
                 continue;
             }
@@ -46,5 +48,9 @@ public class Lab1Com {
         }
 
         return stringBuilder.toString();
+    }
+
+    public void setAlp(String alp) {
+        this.alp = alp;
     }
 }
